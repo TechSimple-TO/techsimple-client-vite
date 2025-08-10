@@ -1,5 +1,6 @@
 // src/pages/Home.tsx
 import React from 'react';
+import styles from './Home.module.scss';
 
 const testimonials = [
   {
@@ -17,21 +18,27 @@ const testimonials = [
 ];
 
 const Home: React.FC = () => (
-  <section className="fade-in">
-    <h2>Welcome to TechSimple-TO</h2>
-    <p>We specialize in tech support, PC builds, and administrative solutions tailored for small businesses. Let us simplify technology for you.</p>
-
-    <h2 style={{ marginTop: '3rem' }}>What Clients Are Saying</h2>
-    <div className="card-grid">
-      {testimonials.map((t, i) => (
-        <div className="card" key={i}>
-          <p style={{ fontSize: '1.2rem', color: '#FFDC82', marginBottom: '0.5rem' }}>★★★★★</p>
-          <p style={{ fontStyle: 'italic', marginBottom: '1rem' }}>&ldquo;{t.quote}&rdquo;</p>
-          <p><strong>{t.name}</strong></p>
-        </div>
-      ))}
+  <section className={styles.wrapper}>
+    <div className={styles.intro}>
+      <h2 className={styles.title}>Welcome to TechSimple-TO</h2>
+      <p className={styles.lead}>
+        We specialize in tech support, PC builds, and administrative solutions tailored for small businesses.
+        Let us simplify technology for you.
+      </p>
     </div>
+
+    <h3>What Clients Are Saying</h3>
+      <div className={styles.cardGrid}>
+    {testimonials.map((t, i) => (
+      <div className={styles.card} key={i}>
+        <p className={styles.stars}>★★★★★</p>
+        <p style={{ fontStyle: 'italic' }}>&ldquo;{t.quote}&rdquo;</p>
+        <p className={styles.name}>{t.name}</p>
+      </div>
+    ))}
+</div>
   </section>
 );
 
 export default Home;
+

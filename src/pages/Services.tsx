@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Services.module.scss';
 
 const services = [
   {
@@ -16,11 +17,11 @@ const services = [
 ];
 
 const Services: React.FC = () => (
-  <section className="fade-in">
-    <h2>Our Services</h2>
-    <div className="card-grid">
+  <section className={styles.wrapper}>
+    <h2 className={styles.title}> Our Services </h2>
+    <div className={styles.cardGrid}>
       {services.map((service, index) => (
-        <div className="card" key={index}>
+        <div className={styles.card} key={index}>
           <h3>{service.title}</h3>
           <p>{service.description}</p>
         </div>
