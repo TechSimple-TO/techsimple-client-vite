@@ -22,7 +22,7 @@ const Services: React.FC = () => (
     <div className={styles.cardGrid}>
       {services.map((service, index) => (
         <div className={styles.card} key={index}>
-          <h3>{service.title}</h3>
+          <h3> {service.title}</h3>
           <p>{service.description}</p>
         </div>
       ))}
