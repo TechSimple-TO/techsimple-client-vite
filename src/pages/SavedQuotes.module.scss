@@ -1,0 +1,23 @@
+/* SavedQuotes.module.scss */
+.actions { display: flex; gap: .5rem; }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.th, .td {
+  border-bottom: 1px solid #e6e6e6;
+  padding: .6rem .4rem;
+  text-align: left;
+}
+.row:hover { background: #fff; }
+.btn {
+  background: var(--color-blue);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: .4rem .7rem;
+  cursor: pointer;
+}
+.btn.secondary { background: var(--color-grey); }
+.inlineInput { width: 100%; padding: .35rem .45rem; border: 1px solid #d7d7d7; border-radius: 6px; }

@@ -26,6 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link className={isActive('/about')} to="/about">About</Link>
             <Link className={isActive('/contact')} to="/contact">Contact</Link>
             <Link className={isActive('/quote')} to="/quote">Quote</Link>
+            <Link className={isActive('/saved')} to="/saved">Saved</Link>
           </nav>
         </div>
       </header>

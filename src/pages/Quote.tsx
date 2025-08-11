@@ -21,6 +21,8 @@ const ComponentSelector: React.FC<SelectorProps> = ({ label, options, onSelect }
   </div>
 );
 
+
+
 const QuoteSummary: React.FC<{ selections: Record<string, Option | null> }> = ({ selections }) => {
   const total = Object.values(selections).reduce((s, v) => (v ? s + v.price : s), 0);
   return (
@@ -59,6 +61,35 @@ const QuotePage: React.FC = () => {
     CPU: null, GPU: null, RAM: null,
   });
 
+  const [saving, setSaving] = useState(false);
+const [customerName, setCustomerName] = useState('');
+
+async function saveQuote() {
+  const CPU = selections.CPU?.label;
+  const GPU = selections.GPU?.label;
+  const RAM = selections.RAM?.label;
+  const total = Object.values(selections).reduce((s, v) => (v ? s + v.price : s), 0);
+
+  if (!CPU || !GPU || !RAM) { alert('Please select CPU, GPU, and RAM.'); return; }
+  if (!customerName.trim()) { alert('Please enter a name for this quote.'); return; }
+
+  setSaving(true);
+  try {
+    await fetch('http://localhost:3001/api/quotes', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: customerName,
+        components: { CPU, GPU, RAM },
+        total
+      }),
+    });
+    alert('Quote saved! Check the Saved page.');
+  } finally {
+    setSaving(false);
+  }
+}
+
   return (
     <section className={styles.wrapper}>
       <h2>Custom PC Quote</h2>
@@ -72,6 +103,19 @@ const QuotePage: React.FC = () => {
           onSelect={(opt) => setSelections(prev => ({ ...prev, [type]: opt }))}
         />
       ))}
+
+      <div className={styles.actions}>
+        <input
+          className={styles.select}
+          type="text"
+          placeholder="Name this quote (e.g., Nick - Workstation)"
+          value={customerName}
+          onChange={(e) => setCustomerName(e.target.value)}
+        />
+        <button className={styles.saveBtn} onClick={saveQuote} disabled={saving}>
+          {saving ? 'Saving…' : 'Save Quote'}
+        </button>
+      </div>
 
       <QuoteSummary selections={selections} />
     </section>

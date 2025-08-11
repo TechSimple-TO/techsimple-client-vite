@@ -1,5 +1,15 @@
 /* Home.module.scss */
-.wrapper { }
+.wrapper {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08); 
+}
+
+.testimonials {
+  margin-top: 2rem;
+}
+
 .intro { margin-bottom: 2rem; }
 .title { margin: 0 0 .5rem; color: var(--color-blue); }
 .lead { max-width: 720px; }

@@ -1,0 +1,13 @@
+[
+  {
+    "id": "205436b3-7b01-4a5f-a383-9b4237d800bd",
+    "createdAt": "2025-08-11T13:33:46.359Z",
+    "name": "test 1",
+    "components": {
+      "CPU": "AMD Ryzen 5 7600X",
+      "GPU": "AMD Radeon RX 7700 XT",
+      "RAM": "64GB DDR5 6000MHz"
+    },
+    "total": 920
+  }
+]

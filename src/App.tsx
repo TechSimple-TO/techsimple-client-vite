@@ -5,6 +5,7 @@ import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Quote from './pages/Quote';
+import SavedQuotes from './pages/SavedQuotes';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/quote" element={<Quote />} />
+        <Route path="/saved" element={<SavedQuotes />} />
       </Routes>
     </Layout>
   );
