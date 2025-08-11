@@ -1,0 +1,11 @@
+.wrapper { }
+.group { margin-bottom: 1rem; }
+.select {
+  width: 100%; padding: .5rem; border: 1px solid #d7d7d7; border-radius: 8px;
+}
+.summary {
+  margin-top: 2rem; background: #fff; box-shadow: var(--shadow);
+  padding: 1.25rem; border-radius: 10px;
+}
+.list { padding-left: 1.2rem; margin: .5rem 0 1rem; }
+.total { color: var(--color-blue); font-weight: 700; }

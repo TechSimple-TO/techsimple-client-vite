@@ -1,0 +1,17 @@
+/* Home.module.scss */
+.wrapper { }
+.intro { margin-bottom: 2rem; }
+.title { margin: 0 0 .5rem; color: var(--color-blue); }
+.lead { max-width: 720px; }
+.stars { color: var(--color-gold); font-size: 1.1rem; margin-bottom: .5rem; }
+.name { font-weight: 700; margin-top: .75rem; }
+
+/* moved from Brand.scss */
+.cardGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+.card {
+  background: #fff; border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  padding: 1.25rem;
+  transition: transform .15s ease;
+}
+.card:hover { transform: translateY(-2px); }
