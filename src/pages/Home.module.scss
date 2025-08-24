@@ -1,4 +1,5 @@
 /* Home.module.scss */
+
 .wrapper {
   padding: 2rem;
   background: #fff;
@@ -6,22 +7,155 @@
   box-shadow: 0 6px 18px rgba(0,0,0,.08); 
 }
 
-.testimonials {
-  margin-top: 2rem;
-}
-
 .intro { margin-bottom: 2rem; }
 .title { margin: 0 0 .5rem; color: var(--color-blue); }
 .lead { max-width: 720px; }
-.stars { color: var(--color-gold); font-size: 1.1rem; margin-bottom: .5rem; }
-.name { font-weight: 700; margin-top: .75rem; }
 
-/* moved from Brand.scss */
-.cardGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+/* Generic section spacing */
+.section { margin-top: 2rem; }
+.sectionTitle { margin: 0 0 .5rem; color: var(--color-blue); }
+.sectionLead { max-width: 720px; }
+
+/* Reusable button styles (scoped to Home page) */
+.sectionCtaRow { margin-top: 1rem; display: flex; gap: .6rem; flex-wrap: wrap; }
+.cta {
+  background: var(--color-blue);
+  color: #fff;
+  text-decoration: none;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+}
+.cta:hover { background: var(--color-grey); }
+.ctaSecondary {
+  background: #fff;
+  color: var(--color-blue);
+  text-decoration: none;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  border: 1px solid var(--color-blue);
+}
+.ctaSecondary:hover { background: rgba(130,163,255,.1); }
+
+/* Card grid used for services and testimonials */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
 .card {
-  background: #fff; border-radius: 10px;
+  background: #fff;
+  border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0,0,0,.08);
   padding: 1.25rem;
   transition: transform .15s ease;
 }
 .card:hover { transform: translateY(-2px); }
+
+.cardImg {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: .75rem;
+}
+.cardHeading { margin: 0 0 .35rem; color: var(--color-blue); }
+
+/* Gallery for featured builds */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.galleryItem {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  padding: .75rem;
+  text-align: center;
+}
+.galleryItem img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: .5rem;
+}
+.galleryItem figcaption {
+  font-size: .95rem;
+}
+
+/* Process steps */
+.steps {
+  counter-reset: step;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+.step {
+  display: flex;
+  gap: .75rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  padding: 1rem;
+  align-items: flex-start;
+}
+.stepNum {
+  min-width: 32px;
+  height: 32px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--color-blue);
+  color: #fff;
+  font-weight: 700;
+}
+.stepTitle { margin: 0 0 .25rem; color: var(--color-blue); }
+
+/* CTA band */
+.ctaBand {
+  margin-top: 2rem;
+  background: linear-gradient(90deg, var(--color-blue), #6f8fff);
+  color: #fff;
+  border-radius: 10px;
+}
+.ctaBandInner {
+  padding: 1.5rem;
+  display: grid;
+  gap: .8rem;
+}
+.ctaBand a.ctaSecondary {
+  border-color: #FFDC82;
+  color: #fff;
+  background: transparent;
+}
+.ctaBand a.ctaSecondary:hover {
+  background: #FFDC82;
+}
+
+/* Testimonials */
+.testimonials { margin-top: 2rem; }
+.stars { color: var(--color-gold); font-size: 1.1rem; margin-bottom: .5rem; }
+.name { font-weight: 700; margin-top: .25rem; }
+.quote p { font-style: italic; margin: 0 0 .75rem; }
+
+/* Fade-in utility */
+.fadeIn { animation: fadeIn .4s ease-in; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Headers for high contrast sections */
+.h1w, .h2w, .h3w, .h4w, .h5w, .h6w { color: #fff; margin-top: 0; }

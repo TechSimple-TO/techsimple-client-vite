@@ -1,13 +1,91 @@
-.form { max-width: 500px; }
+/* Contact.module.scss
+   Card layout (form + info), inputs with focus/invalid states, status feedback.
+*/
+
+/* Layout: responsive two-column grid */
+.wrapper {
+  display: grid;
+  gap: 1.25rem;
+}
+@media (min-width: 900px) {
+  .wrapper {
+    grid-template-columns: 1fr 360px;
+    align-items: start;
+  }
+}
+
+/* Shared card look */
+.formCard, .infoCard {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  padding: 1.5rem;
+}
+
+/* Titles */
+.title { margin: 0 0 .5rem; color: var(--color-blue); }
+.lead { max-width: 720px; }
+
+/* Form layout */
+.form { margin-top: .5rem; }
 .group { margin-bottom: 1rem; }
+label { display: block; margin: 0 0 .35rem; font-weight: 600; }
+
 .input, .textarea {
-  width: 100%; padding: .5rem; border: 1px solid #d7d7d7; border-radius: 8px;
+  width: 100%;
+  padding: .6rem .7rem;
+  border: 1px solid #d7d7d7;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-grey);
+  transition: border-color .15s ease, box-shadow .15s ease;
 }
-.textarea { height: 150px; }
+
+.input:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 3px rgba(130, 163, 255, .25); /* Cornflower glow */
+}
+
+.textarea { min-height: 160px; resize: vertical; }
+
+/* Invalid state */
+.invalid {
+  border-color: #d33;
+  box-shadow: 0 0 0 3px rgba(211, 51, 51, .15);
+}
+.errorText { color: #c00; margin-top: .35rem; display: block; }
+
+/* Actions */
+.actions { margin-top: .5rem; }
 .button {
-  padding: .75rem 1.5rem; background: var(--color-blue); color: #fff;
-  border: 0; border-radius: 6px; font-weight: 700; cursor: pointer;
+  padding: .75rem 1.5rem;
+  background: var(--color-blue);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
 }
-.status { margin-top: 1rem; }
-.success { color: green; }
+.button:disabled { opacity: .7; cursor: not-allowed; }
+.button:hover:not(:disabled) { background: var(--color-grey); }
+
+/* Status region */
+.statusRegion { min-height: 1.25rem; margin-top: .5rem; }
+.status { margin: 0; }
+.success { color: #1a7f37; }  /* accessible green */
 .error { color: #c00; }
+
+/* Info card (right column) */
+.infoTitle { margin: 0 0 .5rem; color: var(--color-blue); }
+.infoSub { margin: 1rem 0 .25rem; color: var(--color-blue); }
+.link { color: var(--color-blue); text-decoration: none; }
+.link:hover { text-decoration: underline; }
+
+.noteBox {
+  margin-top: 1rem;
+  background: rgba(130, 163, 255, .08); /* subtle blue wash */
+  border: 1px solid rgba(130, 163, 255, .25);
+  border-radius: 8px;
+  padding: .75rem;
+}

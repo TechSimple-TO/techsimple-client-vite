@@ -1,7 +1,86 @@
-// src/pages/About.module.scss    
-.wrapper { 
+/* About.module.scss
+   About page styles: intro box + card grid for the rest. */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* spacing between the intro box and the card grid */
+}
+
+/* Intro section box */
+.introBox {
   padding: 2rem;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0,0,0,.08);
 }
+
+.title {
+  margin: 0 0 .5rem;
+  color: var(--color-blue);
+}
+
+.lead {
+  max-width: 720px;
+  margin-bottom: 0;
+}
+
+/* Card grid for subsections */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  padding: 1.25rem;
+  transition: transform .15s ease;
+}
+.card:hover { transform: translateY(-2px); }
+
+.cardTitle {
+  margin: 0 0 .5rem;
+  color: var(--color-blue);
+}
+
+.list {
+  margin: .25rem 0 0;
+  padding-left: 1.1rem;
+}
+.list li { margin: .25rem 0; }
+
+.note {
+  margin-top: .6rem;
+  font-size: .95rem;
+}
+
+.ctaRow {
+  margin-top: .8rem;
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+
+.cta {
+  background: var(--color-blue);
+  color: #fff;
+  text-decoration: none;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+}
+.cta:hover { background: var(--color-grey); }
+
+.ctaSecondary {
+  background: #fff;
+  color: var(--color-blue);
+  text-decoration: none;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  border: 1px solid var(--color-blue);
+}
+.ctaSecondary:hover { background: rgba(130,163,255,.1); }
