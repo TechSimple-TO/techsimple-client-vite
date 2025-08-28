@@ -14,8 +14,6 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Quote from './pages/Quote';
-import SavedQuotes from './pages/SavedQuotes';
 
 /**
 *App
@@ -35,8 +33,6 @@ export default function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/quote" element={<Quote />} />
-        <Route path="/saved" element={<SavedQuotes />} />
       </Routes>
     </Layout>
   );

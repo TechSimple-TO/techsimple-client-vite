@@ -8,7 +8,7 @@
  * Uses CSS Modules for scoped styles.
  */
 
-import React from 'react';
+import * as React from 'react';
 import styles from './Services.module.scss';
 
 // Import images (Vite will optimize/hash these)

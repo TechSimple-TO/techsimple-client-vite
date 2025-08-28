@@ -33,5 +33,16 @@
     },
     "total": 1080,
     "updatedAt": "2025-08-18T13:20:43.997Z"
+  },
+  {
+    "id": "4d8b7b9f-006d-4019-bf19-924ee807b41a",
+    "createdAt": "2025-08-28T19:54:47.909Z",
+    "name": "marco",
+    "components": {
+      "CPU": "AMD Ryzen 5 7600X",
+      "GPU": "NVIDIA RTX 4060",
+      "RAM": "32GB DDR5 6000MHz"
+    },
+    "total": 659
   }
 ]
