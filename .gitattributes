@@ -1,0 +1,4 @@
+# Keep deploy branch state for server/ on merges
+# When merging master -> deploy, always prefer deploy's version (i.e., keep it deleted).
+server/** merge=ours
+

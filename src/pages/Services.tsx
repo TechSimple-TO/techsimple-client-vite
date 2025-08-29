@@ -8,7 +8,8 @@
  * Uses CSS Modules for scoped styles.
  */
 
-import React from 'react';
+import * as React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Services.module.scss';
 
 // Import images (Vite will optimize/hash these)
@@ -70,7 +71,7 @@ const Services: React.FC = () => (
           <p>{s.description}</p>
           <div className={styles.cardActions}>
             <a className={styles.cta} href="/quote">Request a Quote</a>
-            <a className={styles.ctaSecondary} href="/contact">Ask a Question</a>
+            <Link className={styles.ctaSecondary} to="/contact">Ask a Question</Link>
           </div>
         </li>
       ))}
@@ -94,7 +95,7 @@ const Services: React.FC = () => (
         <p className={styles.hintw}>Tell us your goals—we’ll recommend a plan in plain English.</p>
         <div className={styles.sectionCtaRow}>
           <a className={styles.cta} href="/quote">Get a Free Quote</a>
-          <a className={styles.ctaSecondary} href="/contact">Contact Us</a>
+          <Link className={styles.ctaSecondary} to="/contact">Contact Us</Link>
         </div>
       </div>
     </section>
