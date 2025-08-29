@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './About.module.scss';
 
 const About: React.FC = () => (
@@ -45,7 +46,7 @@ const About: React.FC = () => (
           <li>Admin automation &amp; spreadsheet solutions</li>
         </ul>
         <p className={styles.note}>
-          See the <a href="/services">Services</a> page for details.
+          See the <Link to="/services">Services</Link> page for details.
         </p>
       </article>
 
@@ -69,7 +70,7 @@ const About: React.FC = () => (
           focus on outcomes—fast.
         </p>
         <p className={styles.note}>
-          Browse a few <a href="/">testimonials</a> on the home page.
+          Browse a few <Link to="/">testimonials</Link> on the home page.
         </p>
       </article>
     </div>
@@ -82,7 +83,7 @@ const About: React.FC = () => (
           can be arranged depending on the task and schedule.
         </p>
         <div className={styles.ctaRow}>
-          <a className={styles.cta} href="/contact">Get in Touch</a>
+          <Link className={styles.cta} to="/contact">Get in Touch</Link>
           <a className={styles.ctaSecondary} href="/quote">Request a Quote</a>
         </div>
       </article>

@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
 
 import servicePc from '../assets/service-pc.jpg';
@@ -119,7 +120,7 @@ const Home: React.FC = () => (
       <div className={styles.ctaBandInner}>
         <h2 className={styles.h2w} id="cta-title">Ready to make tech simple?</h2>
         <div className={styles.sectionCtaRow}>
-          <a className={styles.ctaSecondary} href="/contact">Contact Us</a>
+          <Link className={styles.ctaSecondary} to="/contact">Contact Us</Link>
         </div>
       </div>
     </section>
