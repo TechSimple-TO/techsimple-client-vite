@@ -4,11 +4,11 @@
  * Uses EmailJS environment variables:
  *  - VITE_EMAILJS_SERVICE_ID
  *  - VITE_EMAILJS_TEMPLATE_ID
- *  - VITE_EMAILJS_USER_ID
+ *  - VITE_EMAILJS_PUBLIC_KEY
  */
 
 import React, { useMemo, useState } from 'react';
-import { send } from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import styles from './Contact.module.scss';
 
 type FormState = { name: string; email: string; title: string; message: string };
@@ -66,16 +66,20 @@ const Contact: React.FC = () => {
     setSubmitting(true);
     setStatus(null);
     try {
-      await send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID!,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
-        form,
-        import.meta.env.VITE_EMAILJS_USER_ID!
-      );
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('Missing EmailJS environment variables');
+      }
+
+      await emailjs.send(serviceId, templateId, form, { publicKey });
       setStatus({ ok: true, msg: 'Thanks! Your message was sent successfully.' });
       setForm(initialForm);
       setTouched({ name: false, email: false, title: false, message: false });
-    } catch {
+    } catch (err) {
+      console.error('EmailJS error', err);
       setStatus({
         ok: false,
         msg: 'Something went wrong sending your message. Please try again.',
