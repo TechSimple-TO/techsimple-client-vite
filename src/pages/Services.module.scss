@@ -59,7 +59,7 @@
   border-radius: 8px;
   font-weight: 700;
 }
-.cta:hover { background: #FFDC82; }
+.cta:hover { background: #FFDC82; color: #5B5B5B; }
 
 .ctaSecondary {
   background: #fff;
@@ -70,7 +70,7 @@
   font-weight: 700;
   border: 1px solid var(--color-blue);
 }
-.ctaSecondary:hover { background: #FFDC82; }
+.ctaSecondary:hover { background: #FFDC82; color: #5B5B5B; }
 
 /* Why box */
 .whyBox {

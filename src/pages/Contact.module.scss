@@ -68,7 +68,7 @@ label { display: block; margin: 0 0 .35rem; font-weight: 600; }
   cursor: pointer;
 }
 .button:disabled { opacity: .7; cursor: not-allowed; }
-.button:hover:not(:disabled) { background: #FFDC82; }
+.button:hover:not(:disabled) { background: #FFDC82; color: #5B5B5B; }
 
 /* Status region */
 .statusRegion { min-height: 1.25rem; margin-top: .5rem; }
