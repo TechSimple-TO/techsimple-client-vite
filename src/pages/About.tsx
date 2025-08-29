@@ -84,7 +84,6 @@ const About: React.FC = () => (
         </p>
         <div className={styles.ctaRow}>
           <Link className={styles.cta} to="/contact">Get in Touch</Link>
-          <a className={styles.ctaSecondary} href="/quote">Request a Quote</a>
         </div>
       </article>
   </section>

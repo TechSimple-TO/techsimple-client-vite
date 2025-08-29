@@ -4,7 +4,7 @@
  * - Intro block with title/lead
  * - Image-backed service cards in a responsive grid
  * - “Why work with us” bullets
- * - CTA band to contact/quote
+ * - CTA band to contact
  * Uses CSS Modules for scoped styles.
  */
 
@@ -70,7 +70,6 @@ const Services: React.FC = () => (
           <h3 className={styles.cardHeading}>{s.title}</h3>
           <p>{s.description}</p>
           <div className={styles.cardActions}>
-            <a className={styles.cta} href="/quote">Request a Quote</a>
             <Link className={styles.ctaSecondary} to="/contact">Ask a Question</Link>
           </div>
         </li>
@@ -94,7 +93,6 @@ const Services: React.FC = () => (
         <h2 id="services-cta" className={styles.h2w}>Not sure where to start?</h2>
         <p className={styles.hintw}>Tell us your goals—we’ll recommend a plan in plain English.</p>
         <div className={styles.sectionCtaRow}>
-          <a className={styles.cta} href="/quote">Get a Free Quote</a>
           <Link className={styles.ctaSecondary} to="/contact">Contact Us</Link>
         </div>
       </div>
