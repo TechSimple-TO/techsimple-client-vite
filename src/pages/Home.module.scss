@@ -151,6 +151,18 @@
 .name { font-weight: 700; margin-top: .25rem; }
 .quote p { font-style: italic; margin: 0 0 .75rem; }
 
+/* Read more/less toggle for testimonials */
+.readMore {
+  background: none;
+  border: 0;
+  color: var(--color-blue);
+  text-decoration: underline;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+.readMore:hover { color: var(--color-gold); }
+
 /* Fade-in utility */
 .fadeIn { animation: fadeIn .4s ease-in; }
 @keyframes fadeIn {

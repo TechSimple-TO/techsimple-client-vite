@@ -6,7 +6,7 @@
  * - Keep this page lightweight; deeper details live on Services/About.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
 
@@ -36,7 +36,16 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-const Home: React.FC = () => (
+// Helper: truncate a string to N words (adds an ellipsis when truncated)
+const truncateWords = (text: string, count: number) => {
+  const words = text.trim().split(/\s+/);
+  return words.length <= count ? text : words.slice(0, count).join(' ') + '…';
+};
+
+const Home: React.FC = () => {
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+
+  return (
   <>
     {/* Intro: simple welcome block in a card-style wrapper */}
     <section className={`${styles.wrapper} ${styles.fadeIn}`} aria-labelledby="home-title">
@@ -133,12 +142,21 @@ const Home: React.FC = () => (
       
 
         <ul className={styles.cardGrid}>
-          {testimonials.map((t) => (
+          {testimonials.map((t, i) => (
             <li className={styles.card} key={t.name}>
               <p className={styles.stars} aria-label="5 out of 5 stars">★★★★★</p>
               <blockquote className={styles.quote}>
-                <p>&ldquo;{t.quote}&rdquo;</p>
+                <p id={`quote-${i}`}>&ldquo;{expanded[t.name] ? t.quote : truncateWords(t.quote, 12)}&rdquo;</p>
               </blockquote>
+              <button
+                type="button"
+                className={styles.readMore}
+                aria-expanded={!!expanded[t.name]}
+                aria-controls={`quote-${i}`}
+                onClick={() => setExpanded((e) => ({ ...e, [t.name]: !e[t.name] }))}
+              >
+                {expanded[t.name] ? 'Show less' : 'Read more'}
+              </button>
               <footer className={styles.name}>— {t.name}</footer>
             </li>
           ))}
@@ -146,6 +164,7 @@ const Home: React.FC = () => (
       </div>
     </section>
   </>
-);
+  );
+};
 
 export default Home;
