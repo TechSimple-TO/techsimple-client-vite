@@ -64,23 +64,17 @@
   flex-wrap: wrap;
 }
 
-.cta {
-  background: var(--color-blue);
-  color: #fff;
-  text-decoration: none;
-  padding: .6rem 1rem;
-  border-radius: 8px;
-  font-weight: 700;
+/* About page image beneath the intro */
+.aboutImg {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  display: block;
 }
-.cta:hover { background: #FFDC82; color: #5B5B5B; }
+@media (min-width: 1024px) {
+  .aboutImg { height: 320px; }
+}
 
-.ctaSecondary {
-  background: #fff;
-  color: var(--color-blue);
-  text-decoration: none;
-  padding: .6rem 1rem;
-  border-radius: 8px;
-  font-weight: 700;
-  border: 1px solid var(--color-blue);
-}
-.ctaSecondary:hover { background: #FFDC82; color: #5B5B5B; }
+/* (CTA button styles centralized in Brand.scss as .btn variants) */

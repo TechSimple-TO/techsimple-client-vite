@@ -16,27 +16,8 @@
 .sectionTitle { margin: 0 0 .5rem; color: var(--color-blue); }
 .sectionLead { max-width: 720px; }
 
-/* Reusable button styles (scoped to Home page) */
+/* Reusable CTA row; buttons use global .btn classes from Brand.scss */
 .sectionCtaRow { margin-top: 1rem; display: flex; gap: .6rem; flex-wrap: wrap; }
-.cta {
-  background: var(--color-blue);
-  color: #fff;
-  text-decoration: none;
-  padding: .6rem 1rem;
-  border-radius: 8px;
-  font-weight: 700;
-}
-.cta:hover { background: #FFDC82; color: #5B5B5B; }
-.ctaSecondary {
-  background: #fff;
-  color: var(--color-blue);
-  text-decoration: none;
-  padding: .6rem 1rem;
-  border-radius: 8px;
-  font-weight: 700;
-  border: 1px solid var(--color-blue);
-}
-.ctaSecondary:hover { background: #FFDC82; color: #5B5B5B; }
 
 /* Card grid used for services and testimonials */
 .cardGrid {
@@ -130,45 +111,53 @@
   color: #fff;
   border-radius: 10px;
 }
+.ctaBand:hover { transform: translateY(-2px); }
+
 .ctaBandInner {
   padding: 1.5rem;
   display: grid;
   gap: .8rem;
 }
-.ctaBand a.ctaSecondary {
-  border-color: #FFDC82;
-  color: #fff;
-  background: transparent;
-}
-.ctaBand a.ctaSecondary:hover {
-  background: #FFDC82;
-  color: #5B5B5B;
-}
+
+
+
 
 /* Testimonials */
 .testimonials { margin-top: 2rem; }
 .stars { color: var(--color-gold); font-size: 1.1rem; margin-bottom: .5rem; }
-.name { font-weight: 700; margin-top: .25rem; }
+.name { font-weight: 700; margin: .25rem 0 .5rem; }
 .quote p { font-style: italic; margin: 0 0 .75rem; }
 
 /* Read more/less toggle for testimonials */
-.readMore {
-  background: none;
-  border: 0;
-  color: var(--color-blue);
-  text-decoration: underline;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-}
-.readMore:hover { color: var(--color-gold); }
 
-/* Fade-in utility */
-.fadeIn { animation: fadeIn .4s ease-in; }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+
+/* (Fade-in now applied globally in Brand.scss to all sections) */
 
 /* Headers for high contrast sections */
 .h1w, .h2w, .h3w, .h4w, .h5w, .h6w { color: #fff; margin-top: 0; }
+
+/* (CTA button normalization now handled globally in Brand.scss) */
+
+/* Modal for full testimonials */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+.modal {
+  background: #fff;
+  color: inherit;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  width: 100%;
+  max-width: 720px;
+  padding: 1.25rem;
+  display: grid;
+  gap: .75rem;
+}
+.modalTitle { margin: 0; color: var(--color-blue); }
+.modalActions { display: flex; justify-content: flex-end; gap: .5rem; }

@@ -178,7 +178,7 @@ const Contact: React.FC = () => {
 
           {/* Submit */}
           <div className={styles.actions}>
-            <button className={styles.button} type="submit" disabled={submitting}>
+            <button className="btn btn--primary" type="submit" disabled={submitting}>
               {submitting ? 'Sending…' : 'Send Message'}
             </button>
           </div>
