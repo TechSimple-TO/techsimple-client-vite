@@ -6,7 +6,7 @@
  * - Keep this page lightweight; deeper details live on Services/About.
  */
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
 
@@ -14,6 +14,8 @@ import servicePc from '../assets/service-pc.jpg';
 import serviceSupport from '../assets/service-support.jpg';
 import serviceData from '../assets/service-data.jpg';
 import serviceAdmin from '../assets/service-admin.jpg';
+import serviceWebsite from '../assets/service-website.jpg';
+import serviceRepair from '../assets/service-repair.jpg';
 
 /** Stronger typing helps prevent accidental shape changes later. */
 type Testimonial = { name: string; quote: string };
@@ -36,10 +38,51 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-const Home: React.FC = () => (
+// Helper: truncate a string to N words (adds an ellipsis when truncated)
+const truncateWords = (text: string, count: number) => {
+  const words = text.trim().split(/\s+/);
+  return words.length <= count ? text : words.slice(0, count).join(' ') + '…';
+};
+
+const Home: React.FC = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null);
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
+
+  const openReview = (t: Testimonial) => {
+    setActiveTestimonial(t);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setActiveTestimonial(null);
+  };
+
+  useEffect(() => {
+    if (!modalOpen) return;
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeModal();
+    };
+    window.addEventListener('keydown', onKey);
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const t = setTimeout(() => closeBtnRef.current?.focus(), 0);
+
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+      clearTimeout(t);
+    };
+  }, [modalOpen]);
+
+  return (
   <>
     {/* Intro: simple welcome block in a card-style wrapper */}
-    <section className={`${styles.wrapper} ${styles.fadeIn}`} aria-labelledby="home-title">
+    <section className={styles.wrapper} aria-labelledby="home-title">
       <div className={styles.intro}>
         <h2 id="home-title" className={styles.title}>
           Welcome to TechSimple-TO
@@ -81,7 +124,20 @@ const Home: React.FC = () => (
             <h3 className={styles.cardHeading}>Admin Automation</h3>
             <p>Spreadsheets, scripts, and tools tailored to your business processes.</p>
           </li>
+          <li className={styles.card}>
+            <img className={styles.cardImg} src={serviceWebsite} alt="Website development and modernization" />
+            <h3 className={styles.cardHeading}>Website Development &amp; Modernization</h3>
+            <p>Modern sites and small‑business workflows: booking, invoicing, analytics, migrations.</p>
+          </li>
+          <li className={styles.card}>
+            <img className={styles.cardImg} src={serviceRepair} alt="Hardware repairs" />
+            <h3 className={styles.cardHeading}>Hardware Repairs</h3>
+            <p>Diagnostics, upgrades, and fixes: SSD/RAM, thermal service, screens, batteries, cleaning.</p>
+          </li>
         </ul>
+        <div className={styles.sectionCtaRow} style={{ justifyContent: 'center' }}>
+          <Link className="btn btn--primary" to="/services">Our Services</Link>
+        </div>
       </div>
     </section>
 
@@ -120,7 +176,7 @@ const Home: React.FC = () => (
       <div className={styles.ctaBandInner}>
         <h2 className={styles.h2w} id="cta-title">Ready to make tech simple?</h2>
         <div className={styles.sectionCtaRow}>
-          <Link className={styles.ctaSecondary} to="/contact">Contact Us</Link>
+          <Link className="btn btn--secondary" to="/contact">Contact Us</Link>
         </div>
       </div>
     </section>
@@ -133,19 +189,57 @@ const Home: React.FC = () => (
       
 
         <ul className={styles.cardGrid}>
-          {testimonials.map((t) => (
+          {testimonials.map((t, i) => (
             <li className={styles.card} key={t.name}>
               <p className={styles.stars} aria-label="5 out of 5 stars">★★★★★</p>
               <blockquote className={styles.quote}>
-                <p>&ldquo;{t.quote}&rdquo;</p>
+                <p id={`quote-${i}`}>&ldquo;{truncateWords(t.quote, 12)}&rdquo;</p>
               </blockquote>
               <footer className={styles.name}>— {t.name}</footer>
+              <button
+                type="button"
+                className="btn btn--primary"
+                aria-haspopup="dialog"
+                aria-controls="review-dialog"
+                onClick={() => openReview(t)}
+              >
+                Read full review
+              </button>
             </li>
           ))}
         </ul>
       </div>
     </section>
+    {modalOpen && activeTestimonial && (
+      <div className={styles.modalOverlay} role="presentation" onClick={closeModal}>
+        <div
+          className={styles.modal}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="review-title"
+          aria-describedby="review-body"
+          id="review-dialog"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <h3 className={styles.modalTitle} id="review-title">Review from {activeTestimonial.name}</h3>
+          <blockquote className={styles.quote}>
+            <p id="review-body">“{activeTestimonial.quote}”</p>
+          </blockquote>
+          <div className={styles.modalActions}>
+            <button
+              type="button"
+              className="btn btn--secondary"
+              onClick={closeModal}
+              ref={closeBtnRef}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
   </>
-);
+  );
+};
 
 export default Home;

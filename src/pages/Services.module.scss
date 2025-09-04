@@ -49,28 +49,41 @@
   flex-wrap: wrap;
   gap: .5rem;
 }
-
-/* Buttons (scoped to this page) */
-.cta {
-  background: var(--color-blue);
-  color: #fff;
-  text-decoration: none;
-  padding: .55rem 1rem;
-  border-radius: 8px;
-  font-weight: 700;
+.expandedContent {
+  margin-top: .5rem;
+  display: grid;
+  gap: .5rem;
 }
-.cta:hover { background: var(--color-grey); }
 
-.ctaSecondary {
+.examples {
+  margin: .25rem 0 0;
+  padding-left: 1.1rem;
+}
+.examples li { margin: .25rem 0; }
+
+.expandedActions {
+  margin-top: .5rem;
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+
+/* Standalone expanded panel rendered below the grid */
+.expandedPanel {
+  margin-top: 1rem;
   background: #fff;
-  color: var(--color-blue);
-  text-decoration: none;
-  padding: .55rem 1rem;
-  border-radius: 8px;
-  font-weight: 700;
-  border: 1px solid var(--color-blue);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  padding: 1.25rem;
 }
-.ctaSecondary:hover { background: rgba(130,163,255,.1); }
+
+.expandedImg {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 
 /* Why box */
 .whyBox {
@@ -101,4 +114,7 @@
 /* Responsive niceties */
 @media (min-width: 1024px) {
   .cardImg { height: 180px; }
+  .expandedImg { height: 260px; }
 }
+
+/* (CTA button styles centralized in Brand.scss as .btn variants) */

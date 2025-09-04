@@ -1,0 +1,15 @@
+# React/Vite SPA routing for Apache (cPanel)
+# This file is copied to the build root by Vite from /public.
+
+Options -MultiViews
+RewriteEngine On
+
+# Serve existing files/directories as-is
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Fallback all other requests to index.html
+# Using a relative path keeps this valid even in subfolders
+RewriteRule . index.html [L]
+

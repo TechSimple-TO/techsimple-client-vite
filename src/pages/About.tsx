@@ -7,10 +7,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './About.module.scss';
+import aboutGeneral from '../assets/about-general.jpg';
 
 const About: React.FC = () => (
   // Wrapper applies spacing + fade-in animation
-  <section className={`${styles.wrapper} ${styles.fadeIn}`}>
+  <section className={styles.wrapper}>
     {/* Page title */}
     <div className={styles.introBox}>
       <h2 className={styles.title}>About TechSimple-TO</h2>
@@ -22,6 +23,14 @@ const About: React.FC = () => (
         devices, data, and workflows running smoothly—without the jargon.
       </p>
     </div>
+
+    {/* Photo just below the About section */}
+    <img
+      className={styles.aboutImg}
+      src={aboutGeneral}
+      alt="TechSimple-TO"
+      loading="lazy"
+    />
 
     {/* Content is organized into small, scannable sections for readability */}
     
@@ -83,8 +92,7 @@ const About: React.FC = () => (
           can be arranged depending on the task and schedule.
         </p>
         <div className={styles.ctaRow}>
-          <Link className={styles.cta} to="/contact">Get in Touch</Link>
-          <a className={styles.ctaSecondary} href="/quote">Request a Quote</a>
+          <Link className="btn btn--primary" to="/contact">Get in Touch</Link>
         </div>
       </article>
   </section>
