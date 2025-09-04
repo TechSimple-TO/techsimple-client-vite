@@ -17,6 +17,11 @@ body {
   color: var(--color-grey);
 }
 
+/* Normalize native control typography to match text */
+button, input, select, textarea {
+  font: inherit; /* family, size, weight, line-height */
+}
+
 /* Layout helpers */
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.25rem; }
 .page { padding: 2rem 0 3rem; }
@@ -34,7 +39,7 @@ body {
 .nav-links { display: flex; gap: 1rem; }
 .nav-links a { color: #fff; text-decoration: none; font-weight: 700; padding: .25rem .4rem; border-radius: 6px; }
 .nav-links a:hover { color: var(--color-gold); }
-.nav-links a.active { background: rgba(255,255,255,.18); }
+.nav-links a.active { background: #e2e2e250; }
 
 /* Footer */
 .site-footer { border-top: 1px solid #e6e6e6; margin-top: 2rem; padding: 2rem 0; font-size: .9rem; }
@@ -52,3 +57,56 @@ body {
 h1, h2, h3, h4, h5, h6 { color: var(--color-blue); margin-top: 0; }
 
 .h1w, .h2w, .h3w, .h4w, .h5w, .h6w { color: #fff; margin-top: 0; }
+
+/* Global Buttons (CTAs) */
+/* Base button style shared by .btn and legacy .cta */
+.btn, .cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  text-decoration: none;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Primary style (blue ⇒ gold hover). Also apply to legacy .cta */
+.btn--primary, .cta {
+  background: var(--color-blue);
+  color: #fff;
+}
+.btn--primary:hover, .cta:hover { background: #FFDC82; color: #5B5B5B; }
+
+/* Secondary (outlined). Also apply to legacy .ctaSecondary */
+.btn--secondary, .ctaSecondary {
+  background: #fff;
+  color: var(--color-blue);
+  border: 1px solid var(--color-blue);
+}
+.btn--secondary:hover, .ctaSecondary:hover { background: #FFDC82; color: #5B5B5B; border-color: #FFDC82; }
+
+/* Accessibility: clear, visible focus */
+.btn:focus-visible, .cta:focus-visible, .ctaSecondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(130, 163, 255, .35);
+}
+
+/* Normalize native buttons when using button elements */
+button.btn, button.cta, button.ctaSecondary { appearance: none; }
+button.btn:disabled, button.cta:disabled, button.ctaSecondary:disabled { opacity: .7; cursor: not-allowed; }
+
+/* Global Fade-in for sections */
+.page section {
+  animation: fadeIn .4s ease-in both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

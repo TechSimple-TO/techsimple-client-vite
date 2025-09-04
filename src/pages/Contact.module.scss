@@ -58,17 +58,7 @@ label { display: block; margin: 0 0 .35rem; font-weight: 600; }
 
 /* Actions */
 .actions { margin-top: .5rem; }
-.button {
-  padding: .75rem 1.5rem;
-  background: var(--color-blue);
-  color: #fff;
-  border: 0;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
-}
-.button:disabled { opacity: .7; cursor: not-allowed; }
-.button:hover:not(:disabled) { background: #FFDC82; color: #5B5B5B; }
+/* (Form submit button now uses global .btn classes from Brand.scss) */
 
 /* Status region */
 .statusRegion { min-height: 1.25rem; margin-top: .5rem; }
