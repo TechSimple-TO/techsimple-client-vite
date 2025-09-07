@@ -40,6 +40,7 @@
   transition: transform .15s ease;
 }
 .card:hover { transform: translateY(-2px); }
+@media (hover: none) { .card:hover { transform: none; } }
 
 .cardTitle {
   margin: 0 0 .5rem;

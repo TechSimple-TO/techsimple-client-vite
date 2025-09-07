@@ -34,6 +34,7 @@
   gap: .6rem;
 }
 .card:hover { transform: translateY(-2px); }
+@media (hover: none) { .card:hover { transform: none; } }
 
 .cardImg {
   width: 100%;
@@ -49,6 +50,8 @@
   flex-wrap: wrap;
   gap: .5rem;
 }
+/* Make action buttons consistent in size across cards */
+
 .expandedContent {
   margin-top: .5rem;
   display: grid;
