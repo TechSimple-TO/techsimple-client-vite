@@ -87,7 +87,7 @@ const services: Service[] = [
     ],
   },
   {
-    title: 'Website Development & Modernization',
+    title: 'Web Development & Modernization',
     description:
       'Design and rebuild modern sites, streamline small-business workflows (booking, invoicing, analytics), and migrate off legacy tools with minimal downtime.',
     img: serviceWebsite,
@@ -123,7 +123,8 @@ const Services: React.FC = () => {
 
   useEffect(() => {
     if (expanded && panelRef.current) {
-      panelRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+      panelRef.current.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
     }
   }, [expanded]);
 
