@@ -105,32 +105,32 @@ const Home: React.FC = () => {
 
         <ul className={styles.cardGrid} role="list">
           <li className={styles.card}>
-            <img className={styles.cardImg} src={servicePc} alt="Custom PC build" />
+            <img className={styles.cardImg} src={servicePc} alt="Custom PC build" loading="lazy" decoding="async" />
             <h3 className={styles.cardHeading}>Custom PC Builds</h3>
             <p>Design, parts selection, assembly, and tuning for your workflow and budget.</p>
           </li>
           <li className={styles.card}>
-            <img className={styles.cardImg} src={serviceSupport} alt="24/7 support" />
+            <img className={styles.cardImg} src={serviceSupport} alt="24/7 support" loading="lazy" decoding="async" />
             <h3 className={styles.cardHeading}>24/7 Tech Support</h3>
             <p>Urgent fixes, remote assistance, and proactive maintenance when you need it.</p>
           </li>
           <li className={styles.card}>
-            <img className={styles.cardImg} src={serviceData} alt="Data backup and migration" />
+            <img className={styles.cardImg} src={serviceData} alt="Data backup and migration" loading="lazy" decoding="async" />
             <h3 className={styles.cardHeading}>Data &amp; Migration</h3>
             <p>Backups, transfers, and setup that keep your files safe and accessible.</p>
           </li>
           <li className={styles.card}>
-            <img className={styles.cardImg} src={serviceAdmin} alt="Admin automation" />
+            <img className={styles.cardImg} src={serviceAdmin} alt="Admin automation" loading="lazy" decoding="async" />
             <h3 className={styles.cardHeading}>Admin Automation</h3>
             <p>Spreadsheets, scripts, and tools tailored to your business processes.</p>
           </li>
           <li className={styles.card}>
-            <img className={styles.cardImg} src={serviceWebsite} alt="Website development and modernization" />
-            <h3 className={styles.cardHeading}>Website Development &amp; Modernization</h3>
+            <img className={styles.cardImg} src={serviceWebsite} alt="Web development and modernization" loading="lazy" decoding="async" />
+            <h3 className={styles.cardHeading}>Web Development &amp; Modernization</h3>
             <p>Modern sites and small‑business workflows: booking, invoicing, analytics, migrations.</p>
           </li>
           <li className={styles.card}>
-            <img className={styles.cardImg} src={serviceRepair} alt="Hardware repairs" />
+            <img className={styles.cardImg} src={serviceRepair} alt="Hardware repairs" loading="lazy" decoding="async" />
             <h3 className={styles.cardHeading}>Hardware Repairs</h3>
             <p>Diagnostics, upgrades, and fixes: SSD/RAM, thermal service, screens, batteries, cleaning.</p>
           </li>

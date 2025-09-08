@@ -133,6 +133,8 @@ const Contact: React.FC = () => {
               onBlur={onBlur}
               placeholder="you@company.com"
               autoComplete="email"
+              inputMode="email"
+              autoCapitalize="none"
               required
             />
             {touched.email && errors.email && (

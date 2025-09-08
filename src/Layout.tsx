@@ -44,7 +44,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Mobile menu toggle (visible at small widths via CSS) */}
           <button
-            className="menu-toggle"
+            className={`menu-toggle ${open ? 'open' : ''}`}
             type="button"
             aria-label="Toggle navigation"
             aria-controls="site-navigation"
